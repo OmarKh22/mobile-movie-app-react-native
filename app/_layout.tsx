@@ -15,17 +15,5 @@ export default function RootLayout() {
         headerShown: false
       }}
     />
-    <Stack.Screen
-      name="(tabs)/profile"
-      options={{
-        headerShown: false
-      }}
-    />
-    <Stack.Screen
-      name="(tabs)/search"
-      options={{
-        headerShown: false
-      }}
-    />
   </Stack>;
 }
