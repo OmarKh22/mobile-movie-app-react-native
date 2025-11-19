@@ -7,7 +7,7 @@ interface MovieCardProps {
   movie: {
     id: number;
     title: string;
-    poster_path: string | null;
+    poster_path?: string | null;
   };
 }
 

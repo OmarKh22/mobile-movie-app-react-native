@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useFetch } from './useFetch';
+import { useQuery } from '@tanstack/react-query';
 
 export interface Movie {
   id: number;
@@ -33,10 +34,19 @@ export const tmdbApi = axios.create({
 export const usePopularMovies = () => {
   return useFetch<MoviesResponse>({
     queryKey: ['popular-movies'],
-    url: `${TMDB_CONFIG.BASE_URL}/movie/popular`,
+    url: `/movie/popular`,
     config: {
+      baseURL: TMDB_CONFIG.BASE_URL,
       headers: TMDB_CONFIG.headers,
     },
+  });
+};
+
+// ✅ Hook for fetching top rated movies
+export const useTopRatedMovies = () => {
+  return useQuery<MoviesResponse>({
+    queryKey: ['topRatedMovies'],
+    queryFn: () => tmdbApi.get('/movie/top_rated').then(res => res.data),
   });
 };
 
