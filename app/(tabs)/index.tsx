@@ -44,8 +44,8 @@ export default function Index() {
             />
 
             <SearchBar 
-               onPress={() => router.push('/search')}
-               palceholder="Search for movies, shows..."
+               onFocus={() => router.push('/search')}
+               placeholder="Search for movies, shows..."
             />
          </BlurView>
 
