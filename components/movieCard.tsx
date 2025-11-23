@@ -8,6 +8,8 @@ interface MovieCardProps {
     id: number;
     title: string;
     poster_path?: string | null;
+    vote_average?: number;
+    overview?: string;
   };
 }
 
@@ -37,6 +39,12 @@ export default function MovieCard({ movie }: MovieCardProps) {
         numberOfLines={1}
       >
         {movie.title}
+      </Text>
+      <Text className="text-white text-xs">
+        ⭐ {movie.vote_average?.toFixed(1) || "N/A"}
+      </Text>
+      <Text className="text-white text-xs mt-1">
+        {movie.overview ? movie.overview.slice(0, 20) + "..." : "No description available."}
       </Text>
     </TouchableOpacity>
   );
